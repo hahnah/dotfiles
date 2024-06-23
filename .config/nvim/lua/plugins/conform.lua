@@ -18,12 +18,12 @@ return {
 				markdown = { "prettier" },
 				graphql = { "prettier" },
 				lua = { "stylua" },
-        elm = { "elm-format" },
+				elm = { "elm-format" },
 			},
 			format_on_save = {
-			  lsp_fallback = true,
-			  async = false,
-			  timeout_ms = 1000,
+				lsp_fallback = true,
+				async = false,
+				timeout_ms = 1000,
 			},
 		})
 
