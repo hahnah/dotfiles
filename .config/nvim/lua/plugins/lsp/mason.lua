@@ -39,6 +39,7 @@ return {
         "prettier",
         "stylua",
         "elm-format",
+        "eslint_d",
       },
     })
   end,
