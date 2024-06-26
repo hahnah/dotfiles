@@ -9,16 +9,14 @@ return {
         mode = "tabs",
         close_icon = "",
         buffer_close_icon = "",
-        style_preset = {
-          bufferline.style_preset.no_italic,
-        },
         name_formatter = function(buf)
           return "Tab #" .. tostring(buf.tabnr)
         end,
+        diagnostics = "nvim_lsp",
         offsets = {
           {
             filetype = "NvimTree",
-            text = "........... Explorer ........",
+            text = "................... Explorer ................",
             separator = true,
           },
         },
