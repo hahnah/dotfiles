@@ -8,3 +8,5 @@ My Neovim configurations.
 - Node.js
 - Deno
 - Git
+- fd
+- ripgrep

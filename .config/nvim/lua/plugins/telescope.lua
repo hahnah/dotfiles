@@ -10,7 +10,27 @@ return {
     local telescope = require("telescope")
     local actions = require("telescope.actions")
 
-    telescope.setup()
+    telescope.setup({
+      defaults = {
+        vimgrep_arguments = {
+          "rg",
+          "--color=never",
+          "--hidden",
+          "--no-heading",
+          "--with-filename",
+          "--line-number",
+          "--column",
+          "--smart-case",
+          "--ignore-file",
+          ".gitignore",
+        },
+      },
+      pickers = {
+        find_files = {
+          find_command = { "fd", "--type", "f", "--hidden", "--exclude", ".git" },
+        },
+      },
+    })
     telescope.load_extension("fzf")
 
     vim.keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find cursored string in cwd" })
