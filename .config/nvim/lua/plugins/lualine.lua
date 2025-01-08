@@ -4,7 +4,7 @@ return {
   config = function()
     local lualine = require("lualine")
     local function maximize_status()
-      return vim.t.maximized and " MAX" or ""
+      return vim.t.maximized and " EXPANDED" or ""
     end
 
     lualine.setup({
