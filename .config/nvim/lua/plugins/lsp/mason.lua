@@ -29,7 +29,6 @@ return {
         "lua_ls",
         "markdown_oxide",
         "ruby_lsp",
-        "tsserver",
         "volar",
       },
     })
