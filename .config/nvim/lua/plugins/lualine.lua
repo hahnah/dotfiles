@@ -13,7 +13,12 @@ return {
         theme = "auto",
       },
       sections = {
+        lualine_a = { "mode" },
+        lualine_b = { "diff", "diagnostics" },
         lualine_c = { "filename", maximize_status },
+        lualine_x = {},
+        lualine_y = { "encoding" },
+        lualine_z = { "location" },
       },
     })
   end,
