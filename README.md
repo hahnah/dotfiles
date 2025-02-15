@@ -2,15 +2,6 @@
 
 My dotfiles
 
-## Setup GitHub Copilot for Neovim
+## Neovim
 
-Requirements:
-
-- Neovim 0.10 or newer
-- Node.js
-- Deno
-- ripgrep
-- fd
-- Install copilot.vim with LazyNeovim
-
-Then start Neovim and invoke `:Copilot setup`.
+See [README](https://github.com/hahnah/dotfiles/blob/main/.config/nvim/README.md) for Neovim configuration.
