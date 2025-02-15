@@ -6,8 +6,9 @@ My dotfiles
 
 Requirements:
 
-- Neovim 9.0.0185 or newer
+- Neovim 0.10 or newer
 - Node.js
+- Deno
 - Install copilot.vim with LazyNeovim
 
 Then start Neovim and invoke `:Copilot setup`.
