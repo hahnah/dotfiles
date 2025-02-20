@@ -10,9 +10,8 @@ return {
       require("CopilotChat").setup({
         model = "claude-3.5-sonnet",
       })
-      vim.keymap.set("n", "<leader>cco", "<cmd>CopilotChatOpen<CR>", { desc = "Open Copilot Chat window" })
-      vim.keymap.set("n", "<leader>ccx", "<cmd>CopilotChatClose<CR>", { desc = "Close Copilot Chat window" })
-      vim.keymap.set("n", "<leader>ccc", "<cmd>CopilotChatReset<CR>", { desc = "Clear Copilot Chat hisory" })
+      vim.keymap.set("n", "<leader>cc", "<cmd>CopilotChatToggle<CR>", { desc = "Toggle Copilot Chat window" })
+      vim.keymap.set("n", "<leader>cr", "<cmd>CopilotChatReset<CR>", { desc = "Reset Copilot Chat context" })
     end,
   },
 }
