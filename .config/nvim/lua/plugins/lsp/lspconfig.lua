@@ -15,7 +15,10 @@ return {
         },
       },
     },
-    { "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings
+    {
+      "Bilal2453/luvit-meta",
+      lazy = true,
+    }, -- optional `vim.uv` typings
   },
   config = function()
     local lspconfig = require("lspconfig")
@@ -83,35 +86,51 @@ return {
     -- used to enable autocompletion (assign to every lsp server config)
     local capabilities = cmp_nvim_lsp.default_capabilities()
 
-    mason_lspconfig.setup_handlers({
-      -- default handler for installed servers
-      function(server_name)
-        lspconfig[server_name].setup({
-          capabilities = capabilities,
-        })
-      end,
-      ["graphql"] = function()
-        lspconfig["graphql"].setup({
-          capabilities = capabilities,
-          filetypes = { "graphql", "gql", "typescriptreact", "javascriptreact" },
-        })
-      end,
-      ["lua_ls"] = function()
-        lspconfig["lua_ls"].setup({
-          capabilities = capabilities,
-          settings = {
-            Lua = {
-              -- make the language server recognize "vim" global
-              diagnostics = {
-                globals = { "vim" },
-              },
-              completion = {
-                callSnippet = "Replace",
-              },
-            },
-          },
-        })
-      end,
+    mason_lspconfig.setup({
+      ensure_installed = {
+        "cssls",
+        "elmls",
+        "graphql",
+        "html",
+        "jsonls",
+        "lua_ls",
+        "markdown_oxide",
+        "ruby_lsp",
+        "volar",
+      },
+      automatic_enable = false,
     })
+
+    require("mason-tool-installer").setup({
+      ensure_installed = {
+        "stylua",
+        "elm-format",
+      },
+    })
+
+    local servers = {
+      cssls = {},
+      elmls = {},
+      graphql = {
+        filetypes = { "graphql", "gql", "typescriptreact", "javascriptreact" },
+      },
+      html = {},
+      jsonls = {},
+      lua_ls = {
+        settings = {
+          Lua = {
+            diagnostics = { globals = { "vim" } },
+            completion = { callSnippet = "Replace" },
+          },
+        },
+      },
+      markdown_oxide = {},
+      volar = {},
+    }
+
+    for server_name, config in pairs(servers) do
+      config.capabilities = capabilities
+      lspconfig[server_name].setup(config)
+    end
   end,
 }
