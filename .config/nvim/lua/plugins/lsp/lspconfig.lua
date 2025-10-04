@@ -21,7 +21,6 @@ return {
     }, -- optional `vim.uv` typings
   },
   config = function()
-    local lspconfig = require("lspconfig")
     local mason_lspconfig = require("mason-lspconfig")
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
@@ -90,13 +89,11 @@ return {
       ensure_installed = {
         "cssls",
         "elmls",
-        "graphql",
         "html",
         "jsonls",
         "lua_ls",
         "markdown_oxide",
         "ruby_lsp",
-        "volar",
       },
       automatic_enable = false,
     })
@@ -111,9 +108,6 @@ return {
     local servers = {
       cssls = {},
       elmls = {},
-      graphql = {
-        filetypes = { "graphql", "gql", "typescriptreact", "javascriptreact" },
-      },
       html = {},
       jsonls = {},
       lua_ls = {
@@ -125,12 +119,11 @@ return {
         },
       },
       markdown_oxide = {},
-      volar = {},
     }
 
     for server_name, config in pairs(servers) do
       config.capabilities = capabilities
-      lspconfig[server_name].setup(config)
+      vim.lsp.config(server_name, config)
     end
   end,
 }
